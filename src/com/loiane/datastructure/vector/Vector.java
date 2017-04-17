@@ -52,6 +52,16 @@ public class Vector {
 		}
 		return this.elements[index];
 	}
+	public int search(String s){
+		
+		for (int i = 0; i < this.elements.length; i++) {
+			if(s.equals(this.elements[i])){
+				return i;
+			}
+		}
+		
+		return -1;
+	}
 
 	public int getSize() {
 		return this.size;
