@@ -1,5 +1,7 @@
 package com.loiane.datastructure.vector;
 
+import java.util.Arrays;
+
 public class Vector {
 
 	private String[] elements;
@@ -45,5 +47,27 @@ public class Vector {
 		}
 		
 	}
+	
+	public int getSize(){
+		return this.size;
+	}
+
+	@Override
+	public String toString() {
+		
+		StringBuilder s = new StringBuilder();
+		
+		for(int i =0; i < this.size-1; i++){
+			s.append(this.elements[i]);
+			s.append(", ");
+		}
+		if(this.size > 0){
+			s.append(this.elements[this.size-1]);
+		}
+		s.append("]");
+		return s.toString();
+	}
+	
+	
 
 }
