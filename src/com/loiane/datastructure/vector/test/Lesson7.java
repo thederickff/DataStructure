@@ -1,4 +1,6 @@
-package com.loiane.datastructure.vector;
+package com.loiane.datastructure.vector.test;
+
+import com.loiane.datastructure.vector.Vector;
 
 public class Lesson7 {
 
