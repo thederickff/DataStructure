@@ -45,6 +45,21 @@ public class Vector {
 		}
 
 	}
+	public boolean add(int index, String element) {
+
+		if(!(index >= 0 && index < this.size)){
+			throw new IllegalArgumentException("Invalid index!");
+		}
+		// move the elements to the next index
+		for(int i = this.size; i > index; i--){
+			this.elements[i] = this.elements[i-1];
+		}
+		
+		this.elements[index] = element;
+		this.size++;
+		
+		return true;
+	}
 	
 	public String search(int index){
 		if(!(index >= 0 && index < this.size)){
@@ -71,7 +86,7 @@ public class Vector {
 	public String toString() {
 
 		StringBuilder s = new StringBuilder();
-
+		s.append("[");
 		for (int i = 0; i < this.size - 1; i++) {
 			s.append(this.elements[i]);
 			s.append(", ");
