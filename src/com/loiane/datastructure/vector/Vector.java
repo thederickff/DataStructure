@@ -35,7 +35,7 @@ public class Vector {
 	 */
 
 	public boolean add(String element) {
-
+		increaseCapacity();
 		if (this.size < this.elements.length) {
 			this.elements[this.size] = element;
 			this.size++;
@@ -45,36 +45,51 @@ public class Vector {
 		}
 
 	}
-	public boolean add(int index, String element) {
 
-		if(!(index >= 0 && index < this.size)){
+	public boolean add(int index, String element) {
+		
+		increaseCapacity();
+		if (!(index >= 0 && index < this.size)) {
 			throw new IllegalArgumentException("Invalid index!");
 		}
 		// move the elements to the next index
-		for(int i = this.size; i > index; i--){
-			this.elements[i] = this.elements[i-1];
+		for (int i = this.size; i > index; i--) {
+			this.elements[i] = this.elements[i - 1];
 		}
-		
+
 		this.elements[index] = element;
 		this.size++;
-		
+
 		return true;
 	}
-	
-	public String search(int index){
-		if(!(index >= 0 && index < this.size)){
+
+	public void increaseCapacity() {
+		if (this.elements.length == this.size) {
+			String[] newElements = new String[this.elements.length * 2];
+
+			for (int i = 0; i < this.elements.length; i++) {
+				newElements[i] = this.elements[i];
+			}
+
+			this.elements = newElements;
+		}
+	}
+
+	public String search(int index) {
+		if (!(index >= 0 && index < this.size)) {
 			throw new IllegalArgumentException("Invalid index!");
 		}
 		return this.elements[index];
 	}
-	public int search(String s){
-		
+
+	public int search(String s) {
+
 		for (int i = 0; i < this.elements.length; i++) {
-			if(s.equals(this.elements[i])){
+			if (s.equals(this.elements[i])) {
 				return i;
 			}
 		}
-		
+
 		return -1;
 	}
 
