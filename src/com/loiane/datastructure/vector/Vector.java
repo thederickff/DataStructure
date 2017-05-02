@@ -1,6 +1,6 @@
 package com.loiane.datastructure.vector;
 
-import java.util.Arrays;
+
 
 public class Vector {
 
@@ -33,7 +33,8 @@ public class Vector {
 	 * 
 	 * }
 	 */
-
+	
+	// Add
 	public boolean add(String element) {
 		increaseCapacity();
 		if (this.size < this.elements.length) {
@@ -74,7 +75,7 @@ public class Vector {
 			this.elements = newElements;
 		}
 	}
-
+	// Search
 	public String search(int index) {
 		if (!(index >= 0 && index < this.size)) {
 			throw new IllegalArgumentException("Invalid index!");
@@ -91,6 +92,26 @@ public class Vector {
 		}
 
 		return -1;
+	}
+	
+	
+	// Remove
+	public void removeItem(int index){
+		if (!(index >= 0 && index < this.size)) {
+			throw new IllegalArgumentException("Invalid index!");
+		}
+		
+		for(int i = index; i < size-1;i++){
+			this.elements[i] = this.elements[i+1];
+		}
+		this.size--;
+	}
+	public void removeItem(String itemName){
+		int index = search(itemName);
+		
+		if(index > -1){
+			removeItem(index);
+		}
 	}
 
 	public int getSize() {
