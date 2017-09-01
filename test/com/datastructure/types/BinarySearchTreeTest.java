@@ -45,9 +45,19 @@ public class BinarySearchTreeTest {
     @Test
     public void testInsert() {
         instance = new BinarySearchTree();
-        String result = "Hello";
+        instance.insert("abc");
+        instance.insert("ab");
+        instance.insert("abc");
+        instance.insert("a");
+        instance.insert("abcd");
+        instance.insert("abcde");
+        instance.insert("abc");
+        instance.insert("abcd");
+        instance.insert("ab");
         
-        assertEquals(result, instance.insert("Hello"));
+        assertEquals(false, instance.search("abc"));
+        assertEquals(false, instance.search("ab"));
+        assertEquals(false, instance.search("a"));
     }
 
     /**
@@ -55,6 +65,7 @@ public class BinarySearchTreeTest {
      */
     @Test
     public void testSearch() {
+        
     }
     
 }
