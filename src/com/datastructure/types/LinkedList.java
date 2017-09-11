@@ -41,6 +41,27 @@ public class LinkedList {
         // return false;
     }
 
+    public boolean isEmpty() {
+        return this.length < 1;
+    }
+
+    @Override
+    public String toString() {
+        Node current = this.head;
+        String result = "[";
+        while (current != null) {
+            result += current.item;
+            // Format
+            if (current.next != null) {
+                result += ", ";
+            } else {
+                result += "]";
+            }
+            current = current.next;
+        }
+        return result;
+    }
+
     public int size() {
         return this.length;
     }
