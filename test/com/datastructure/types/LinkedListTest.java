@@ -86,4 +86,37 @@ public class LinkedListTest {
         
     }
     
+    @Test
+    public void testGet() {
+        System.out.println("Test Get");
+        instance = new LinkedList();
+        instance.append('a');
+        instance.append('b');
+        instance.append('c');
+        instance.remove('c');
+        instance.append('d');
+        
+        assertEquals('a', instance.get(1));
+        assertEquals('b', instance.get(2));
+        assertEquals('d', instance.get(3));
+        
+    }
+    
+    
+    @Test
+    public void testRemoveAt() {
+        System.out.println("Test Get");
+        instance = new LinkedList();
+        instance.append("aa");
+        instance.append("bb");
+        instance.append("cc");
+        instance.removeAt(1);
+        assertEquals("[bb, cc]", instance.toString());
+        instance.append("ee");
+        assertEquals("[bb, cc, ee]", instance.toString());
+        
+   
+        
+    }
+    
 }

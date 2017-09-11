@@ -112,28 +112,30 @@ public class LinkedList {
      * @param position - The position of the item desired to be removed
      */
     public void removeAt(int position) {
-
+        this.remove(this.get(position));
     }
 
     /**
      * This gets the item of a specified position
      *
      * @param position - The position of the item desired to be got
-     * @return - Item
+     * @return - Item object
      */
     public Object get(int position) {
-        Node current;
-        int i = 1;
-        if (position == i) {
-            return this.head;
-        } else {
-            current = this.head.next;
-            while (current != null) {
-                i++;
-                if (position == i) {
-                    return current;
+        if (position >= 0 && position <= length) {
+            Node current;
+            int i = 1;
+            if (position == i) {
+                return this.head.item;
+            } else {
+                current = this.head.next;
+                while (current != null) {
+                    i++;
+                    if (position == i) {
+                        return current.item;
+                    }
+                    current = current.next;
                 }
-                current = current.next;
             }
         }
 
