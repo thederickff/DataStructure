@@ -18,8 +18,23 @@ public class LinkedList {
     }
     
     public boolean append(Object object) {
+        Node newNode = new Node(object);
         
-        return false;
+        if(this.head == null) {
+            this.head = newNode;
+            return true;
+        } else {
+            Node current = this.head;
+            
+            while(current.next != null) {
+                current = current.next;
+            }
+            
+            current = newNode;
+            current.next = null;
+            return true;
+        }
+       // return false;
     }
    
     

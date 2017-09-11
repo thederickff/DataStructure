@@ -43,7 +43,9 @@ public class LinkedListTest {
     @Test
     public void testAppend() {
         // TODO review the generated test code and remove the default call to fail.
-        assertTrue(instance.append("Derick"));
+        assertTrue(instance.append(1));
+        assertTrue(instance.append(2));
+        assertTrue(instance.append(3));
     }
     
 }
