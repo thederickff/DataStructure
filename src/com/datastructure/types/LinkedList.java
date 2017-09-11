@@ -7,6 +7,7 @@ package com.datastructure.types;
 
 /**
  * This class is a LinkedList data structure type.
+ *
  * @author derickfelix
  */
 public class LinkedList {
@@ -23,16 +24,14 @@ public class LinkedList {
      * This add a new item to the end of the list
      *
      * @param item - the desired item to be add to the list
-     * @return - if the item was added successfully
      */
-    public boolean append(Object item) {
+    public void append(Object item) {
         Node newNode = new Node(item);
         Node current;
 
         if (this.head == null) {
             this.head = newNode;
             length++;
-            return true;
         } else {
             current = this.head;
 
@@ -42,9 +41,46 @@ public class LinkedList {
 
             current.next = newNode;
             length++;
-            return true;
         }
-        // return false;
+    }
+
+    /**
+     * This inserts a new item at a specified position in the list.
+     *
+     * @param position - The position to be added in the list
+     * @param item - The item to be added in the list
+     */
+    public void insert(int position, Object item) {
+
+    }
+
+    /**
+     * This removes an item from the list
+     *
+     * @param item - The item to be removed,
+     */
+    public void remove(Object item) {
+
+    }
+
+    /**
+     * This returns the index of the element in the list. If the element is not
+     * in the list, it returns -1.
+     *
+     * @param item - the item that will be used to search the index
+     * @return the index of a specified item
+     */
+    public int indexOf(Object item) {
+        return 0;
+    }
+
+    /**
+     * This removes an item from the specified position in the list.
+     *
+     * @param position - The position of the item desired to be removed
+     */
+    public void removeAt(int position) {
+
     }
 
     /**
@@ -58,9 +94,9 @@ public class LinkedList {
     }
 
     /**
-     * As the list uses a Node class as an item, we need to overwrite 
-     * the default toString method inherited from the java object to
-     * output only the element values.
+     * As the list uses a Node class as an item, we need to overwrite the
+     * default toString method inherited from the java object to output only the
+     * element values.
      *
      * @return - All the values of the linkedList.
      */
@@ -86,8 +122,8 @@ public class LinkedList {
     }
 
     /**
-     * Class responsible to handle the linkedList as being a component 
-     * of the list.
+     * Class responsible to handle the linkedList as being a component of the
+     * list.
      */
     private class Node {
 
