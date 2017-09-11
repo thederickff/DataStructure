@@ -89,7 +89,21 @@ public class LinkedList {
      * @return the index of a specified item
      */
     public int indexOf(Object item) {
-        return 0;
+        Node current;
+        int i = 1;
+        if (this.head.item.equals(item)) {
+            return i;
+        } else {
+            current = this.head.next;
+            while (current != null) {
+                i++;
+                if (current.item.equals(item)) {
+                    return i;
+                }
+                current = current.next;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -99,6 +113,31 @@ public class LinkedList {
      */
     public void removeAt(int position) {
 
+    }
+
+    /**
+     * This gets the item of a specified position
+     *
+     * @param position - The position of the item desired to be got
+     * @return - Item
+     */
+    public Object get(int position) {
+        Node current;
+        int i = 1;
+        if (position == i) {
+            return this.head;
+        } else {
+            current = this.head.next;
+            while (current != null) {
+                i++;
+                if (position == i) {
+                    return current;
+                }
+                current = current.next;
+            }
+        }
+
+        return null;
     }
 
     /**

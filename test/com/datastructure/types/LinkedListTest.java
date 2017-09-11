@@ -68,4 +68,22 @@ public class LinkedListTest {
         
     }
     
+    @Test
+    public void testIndexOf() {
+        System.out.println("Test IndexOf");
+        instance = new LinkedList();
+        instance.append('a');
+        instance.append('b');
+        instance.append('c');
+        instance.remove('b');
+        int expSize = 2;
+        assertEquals(expSize, 2);
+        assertFalse(instance.isEmpty());
+        
+        assertEquals(1, instance.indexOf('a'));
+        assertEquals(-1, instance.indexOf('b'));
+        assertEquals(2, instance.indexOf('c'));
+        
+    }
+    
 }
