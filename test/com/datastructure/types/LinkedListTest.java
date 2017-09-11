@@ -43,13 +43,29 @@ public class LinkedListTest {
     @Test
     public void testAppend() {
         // TODO review the generated test code and remove the default call to fail.
-        instance.append(1);
-        instance.append(2);
-        instance.append(3);
+        instance.append('a');
+        instance.append('b');
+        instance.append('c');
         int expSize = 3;
         assertEquals(expSize, 3);
         assertFalse(instance.isEmpty());
-        assertEquals("[1, 2, 3]", instance.toString());
+        assertEquals("[a, b, c]", instance.toString());
+    }
+    
+    @Test
+    public void testRemove() {
+        System.out.println("Test Remove");
+        instance = new LinkedList();
+        instance.append('a');
+        instance.append('b');
+        instance.append('c');
+        instance.remove('a');
+        instance.remove('b');
+        instance.remove('c');
+        int expSize = 0;
+        assertEquals(expSize, 0);
+        assertTrue(instance.isEmpty());
+        
     }
     
 }

@@ -60,7 +60,25 @@ public class LinkedList {
      * @param item - The item to be removed,
      */
     public void remove(Object item) {
+        Node current, previous;
 
+        if (this.head.item.equals(item)) {
+            this.head = this.head.next;
+            length--;
+        } else {
+            current = this.head.next;
+            previous = this.head;
+
+            while (current != null) {
+                if (current.item.equals(item)) {
+                    previous.next = current.next;
+                    length--;
+                    break;
+                }
+                previous = current;
+                current = current.next;
+            }
+        }
     }
 
     /**
