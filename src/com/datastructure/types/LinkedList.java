@@ -51,7 +51,34 @@ public class LinkedList {
      * @param item - The item to be added in the list
      */
     public void insert(int position, Object item) {
+        if (position >= 0 && position <= length) {
+            Node newNode = new Node(item);
+            Node current, previous;
+            int pos = 1;
+            if (position == pos) {
+                newNode.next = this.head;
+                this.head = newNode;
+                length++;
+            }
+            previous = this.head;
+            current = this.head.next;
+            while (current != null) {
 
+                pos++;
+
+                if (position == pos) {
+                    System.out.println(pos);
+                    newNode.next = current;
+                    previous.next = newNode;
+                    current = newNode;
+                    System.out.println("got");
+                }
+                previous = current;
+                current = current.next;
+            }
+        } else {
+            System.out.println("Position given is out of bound!");
+        }
     }
 
     /**

@@ -105,7 +105,7 @@ public class LinkedListTest {
     
     @Test
     public void testRemoveAt() {
-        System.out.println("Test Get");
+        System.out.println("Remove at");
         instance = new LinkedList();
         instance.append("aa");
         instance.append("bb");
@@ -114,9 +114,24 @@ public class LinkedListTest {
         assertEquals("[bb, cc]", instance.toString());
         instance.append("ee");
         assertEquals("[bb, cc, ee]", instance.toString());
-        
-   
-        
     }
     
+        
+    @Test
+    public void testInsert() {
+        System.out.println("Test Inser");
+        instance = new LinkedList();
+        instance.append("aa");
+        instance.append("bb");
+        instance.append("cc");
+        instance.removeAt(1);
+        assertEquals("[bb, cc]", instance.toString());
+        instance.append("ee");
+        assertEquals("[bb, cc, ee]", instance.toString());
+        instance.insert(1, "aa");
+        assertEquals("[aa, bb, cc, ee]", instance.toString());
+        instance.insert(4, "dd");
+        assertEquals("[aa, bb, cc, dd, ee]", instance.toString());
+        
+    }
 }
