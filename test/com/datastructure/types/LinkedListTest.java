@@ -46,6 +46,9 @@ public class LinkedListTest {
         assertTrue(instance.append(1));
         assertTrue(instance.append(2));
         assertTrue(instance.append(3));
+        int expSize = 2;
+        
+        assertEquals(expSize, 2);
     }
     
 }

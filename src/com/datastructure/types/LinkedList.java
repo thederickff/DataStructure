@@ -10,39 +10,46 @@ package com.datastructure.types;
  * @author derickfelix
  */
 public class LinkedList {
-    
+
     private Node head;
-    
+    private int length;
+
     public LinkedList() {
         this.head = null;
+        this.length = 0;
     }
-    
+
     public boolean append(Object object) {
         Node newNode = new Node(object);
-        
-        if(this.head == null) {
+        Node current;
+
+        if (this.head == null) {
             this.head = newNode;
+            length++;
             return true;
         } else {
-            Node current = this.head;
-            
-            while(current.next != null) {
+            current = this.head;
+
+            while (current.next != null) {
                 current = current.next;
             }
-            
-            current = newNode;
-            current.next = null;
+
+            current.next = newNode;
+            length++;
             return true;
         }
-       // return false;
+        // return false;
     }
-   
-    
-    
+
+    public int size() {
+        return this.length;
+    }
+
     private class Node {
+
         private Object item;
         private Node next;
-        
+
         public Node(Object item) {
             this.item = item;
             this.next = null;
@@ -63,7 +70,6 @@ public class LinkedList {
         public void setNext(Node next) {
             this.next = next;
         }
-        
-        
+
     }
 }
