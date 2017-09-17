@@ -11,7 +11,13 @@ package com.datastructure.types;
  */
 public class Dictionary {
 
-    private Object[] items;
+    private Node[] items;
+    private int size;
+
+    public Dictionary(int initialLength) {
+        this.items = new Node[initialLength];
+        this.size = 0;
+    }
 
     /**
      * This adds a new item to the dictionary.
@@ -73,13 +79,33 @@ public class Dictionary {
     public Object[] keys() {
         return null;
     }
-    
+
     /**
      * This gets all the values of the dictionary
-     * 
+     *
      * @return - An array of all the values the dictionary contains
      */
     public Object[] values() {
         return null;
+    }
+
+    public void growArray() {
+        if (this.size >= this.items.length) {
+            Node[] newArray = new Node[(this.size * 3) / 2];
+            // Copy the this.array to the newArray
+            System.arraycopy(this.items, 0, newArray, 0, this.items.length);
+            this.items = newArray;
+        }
+    }
+
+    private class Node {
+
+        protected Object key;
+        protected Object value;
+
+        public Node(Object key, Object value) {
+            this.key = key;
+            this.value = value;
+        }
     }
 }
