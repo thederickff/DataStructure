@@ -114,6 +114,22 @@ public class Dictionary {
         }
     }
 
+    @Override
+    public String toString() {
+        String output = "{";
+        for (int i = 0; i < this.items.length; i++) {
+            output += this.items[i].key + "=> " + this.items[i].value;
+            if(i < this.items.length) {
+                output += ", \n";
+            }
+        }
+        
+        output += "}";
+        return output;
+    }
+    
+    
+
     private class Node {
 
         protected Object key;
