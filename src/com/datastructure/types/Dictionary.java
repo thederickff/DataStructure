@@ -39,6 +39,20 @@ public class Dictionary {
      * @param key the key
      */
     public void remove(Object key) {
+        if (has(key)) {
+            Node newArray[] = new Node[this.items.length];
+            boolean deleted = false;
+            for (int i = 0; i < this.size-1; i++) {
+                if (!this.items[i].key.equals(key) && !deleted) {
+                    newArray[i] = this.items[i];
+                } else {
+                    newArray[i] = this.items[i+1];
+                    deleted = true;
+                }
+            }
+           this.size--;
+           this.items = newArray;
+        }
     }
 
     /**
@@ -77,6 +91,11 @@ public class Dictionary {
      * This removes all the items from the dictionary
      */
     public void clear() {
+        int count = this.size;
+        for (int i = 0; i < count; i++) {
+            this.items[i] = null;
+            this.size--;
+        }
     }
 
     /**
