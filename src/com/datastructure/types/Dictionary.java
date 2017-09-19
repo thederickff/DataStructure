@@ -26,8 +26,8 @@ public class Dictionary {
      * @param value the value
      */
     public void set(Object key, Object value) {
-        this.items[size].key = key;
-        this.items[size].value = value;
+        growArray();
+        this.items[size] = new Node(key, value);
         this.size++;
     }
 
@@ -46,7 +46,7 @@ public class Dictionary {
      * @return - true if the key exists in the dictionary and false otherwise
      */
     public boolean has(Object key) {
-        for (int i = 0; i < this.items.length; i++) {
+        for (int i = 0; i < this.size; i++) {
             if(this.items[i].key.equals(key)) {
                 return true;
             }
@@ -86,7 +86,7 @@ public class Dictionary {
      */
     public Object[] keys() {
         Object[] keys = new Object[this.items.length];
-        for (int i = 0; i < this.items.length; i++) {
+        for (int i = 0; i < this.size; i++) {
             keys[i] = this.items[i].key;
         }
         return keys;
@@ -99,7 +99,7 @@ public class Dictionary {
      */
     public Object[] values() {
         Object[] values = new Object[this.items.length];
-        for (int i = 0; i < this.items.length; i++) {
+        for (int i = 0; i < this.size; i++) {
             values[i] = this.items[i].value;
         }
         return values;
@@ -116,12 +116,13 @@ public class Dictionary {
 
     @Override
     public String toString() {
-        String output = "{";
-        for (int i = 0; i < this.items.length; i++) {
-            output += this.items[i].key + "=> " + this.items[i].value;
-            if(i < this.items.length) {
-                output += ", \n";
+        String output = "{\n";
+        for (int i = 0; i < this.size; i++) {
+            output += " " + this.items[i].key + ": " + this.items[i].value;
+            if(i < this.size-1) {
+                output += ",";
             }
+            output += "\n";
         }
         
         output += "}";
