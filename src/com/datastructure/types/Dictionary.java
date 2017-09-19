@@ -23,9 +23,12 @@ public class Dictionary {
      * This adds a new item to the dictionary.
      *
      * @param key the key
-     * @param Value the value
+     * @param value the value
      */
-    public void set(Object key, Object Value) {
+    public void set(Object key, Object value) {
+        this.items[size].key = key;
+        this.items[size].value = value;
+        this.size++;
     }
 
     /**
