@@ -47,6 +47,7 @@ public class DictionaryTest {
     @Test
     public void testSet() {
         instance.set("Rick", "Blue");
+        instance.set("Rick", "Green");
         instance.set("Ryan", "Green");
         instance.set("Brad", "Yellow");
         System.out.println(instance.toString());
@@ -59,7 +60,10 @@ public class DictionaryTest {
         System.out.println(Arrays.toString(keys));
         Object[] values = instance.values();
         System.out.println(Arrays.toString(values));
-
+        
+        assertEquals(3, instance.size());
+        
+        assertEquals("Rick", instance.get("Rick"));
     }
 
 }

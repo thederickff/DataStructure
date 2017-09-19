@@ -27,8 +27,10 @@ public class Dictionary {
      */
     public void set(Object key, Object value) {
         growArray();
-        this.items[size] = new Node(key, value);
-        this.size++;
+        if (!has(key)) {
+            this.items[size] = new Node(key, value);
+            this.size++;
+        }
     }
 
     /**
@@ -47,7 +49,7 @@ public class Dictionary {
      */
     public boolean has(Object key) {
         for (int i = 0; i < this.size; i++) {
-            if(this.items[i].key.equals(key)) {
+            if (this.items[i].key.equals(key)) {
                 return true;
             }
         }
@@ -61,6 +63,13 @@ public class Dictionary {
      * @return - the value of a specific key
      */
     public Object get(Object key) {
+        if(has(key)) {
+            for (int i = 0; i < this.size; i++) {
+                if (this.items[i].key.equals(key)) {
+                    return this.items[i].key;
+                }
+            }
+        }
         return null;
     }
 
@@ -76,7 +85,7 @@ public class Dictionary {
      * @return - How many elements the dictionary contains
      */
     public int size() {
-        return -1;
+        return this.size;
     }
 
     /**
@@ -119,17 +128,15 @@ public class Dictionary {
         String output = "{\n";
         for (int i = 0; i < this.size; i++) {
             output += " " + this.items[i].key + ": " + this.items[i].value;
-            if(i < this.size-1) {
+            if (i < this.size - 1) {
                 output += ",";
             }
             output += "\n";
         }
-        
+
         output += "}";
         return output;
     }
-    
-    
 
     private class Node {
 
