@@ -85,7 +85,11 @@ public class Dictionary {
      * @return - An array of all the keys the dictionary contains
      */
     public Object[] keys() {
-        return null;
+        Object[] keys = new Object[this.items.length];
+        for (int i = 0; i < this.items.length; i++) {
+            keys[i] = this.items[i].key;
+        }
+        return keys;
     }
 
     /**
@@ -94,7 +98,11 @@ public class Dictionary {
      * @return - An array of all the values the dictionary contains
      */
     public Object[] values() {
-        return null;
+        Object[] values = new Object[this.items.length];
+        for (int i = 0; i < this.items.length; i++) {
+            values[i] = this.items[i].value;
+        }
+        return values;
     }
 
     public void growArray() {
