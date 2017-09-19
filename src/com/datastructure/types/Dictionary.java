@@ -43,6 +43,11 @@ public class Dictionary {
      * @return - true if the key exists in the dictionary and false otherwise
      */
     public boolean has(Object key) {
+        for (int i = 0; i < this.items.length; i++) {
+            if(this.items[i].key.equals(key)) {
+                return true;
+            }
+        }
         return false;
     }
 
