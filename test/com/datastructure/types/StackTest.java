@@ -46,6 +46,12 @@ public class StackTest {
     @Test
     public void testPush() {
         System.out.println("push");
+        instance.push(1);
+        String expResult = "[1]";
+        assertEquals(expResult, instance.toString());
+        instance.push(2);
+        expResult = "[1, 2]";
+        assertEquals(expResult, instance.toString());
     }
 
     /**
@@ -54,6 +60,7 @@ public class StackTest {
     @Test
     public void testPop() {
         System.out.println("pop");
+        
     }
 
     /**

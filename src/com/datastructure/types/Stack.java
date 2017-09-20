@@ -26,6 +26,14 @@ public class Stack {
      * @param element the element to be added
      */
     public void push(Object element) {
+        growArray();
+        for(int i = 0; i < this.items.length; i++) {
+            if(this.items[i] == null) {
+                this.items[i] = element;
+                this.length++;
+                break;
+            }
+        }
     }
 
     /**
@@ -70,6 +78,24 @@ public class Stack {
      */
     public int size() {
         return this.length;
+    }
+    
+    /**
+     * This returns a string with all the elements of the stack 
+     * 
+     * @return - All the elements of the stack
+     */
+    @Override
+    public String toString() {
+        String r = "[";
+        for(int i =0; i < this.length; i++) {
+            r += this.items[i];
+            if(i + 1 < this.length) {
+             r += ", ";    
+            } 
+        }
+        r += "]";
+        return r;
     }
 
     /**
