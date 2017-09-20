@@ -34,7 +34,7 @@ public class DictionaryTest {
 
     @Before
     public void setUp() {
-        this.instance = new Dictionary(2);
+        this.instance = new Dictionary();
     }
 
     @After
