@@ -14,8 +14,9 @@ public class Dictionary {
     private Node[] items;
     private int size;
 
-    public Dictionary(int initialLength) {
-        this.items = new Node[initialLength];
+    public Dictionary() {
+        // Set 5 as the initial node array length
+        this.items = new Node[5];
         this.size = 0;
     }
 

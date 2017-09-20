@@ -15,8 +15,9 @@ public class Stack {
     private Object[] items;
     private int length;
 
-    public Stack(int initialLength) {
-        this.items = new Object[initialLength];
+    public Stack() {
+        // Set 5 as the initial array length
+        this.items = new Object[5];
         this.length = 0;
     }
 
@@ -42,8 +43,11 @@ public class Stack {
      * @param element the element to be removed
      * @return - The element removed
      */
-    public Object pop(Object element) {
-        return null;
+    public Object pop() {
+        Object obj = this.items[this.length-1];
+        this.items[this.length-1] = null;
+        this.length--;
+        return obj;
     }
 
     /**

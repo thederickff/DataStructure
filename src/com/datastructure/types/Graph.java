@@ -18,7 +18,7 @@ public class Graph {
     
     public Graph(int initialLength) {
         this.vertices = new Object[initialLength];
-        this.adjList = new Dictionary(initialLength);
+        this.adjList = new Dictionary();
     }
     
     /**

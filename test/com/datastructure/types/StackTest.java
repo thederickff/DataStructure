@@ -33,7 +33,7 @@ public class StackTest {
     
     @Before
     public void setUp() {
-        this.instance = new Stack(5);
+        this.instance = new Stack();
     }
     
     @After
@@ -60,7 +60,20 @@ public class StackTest {
     @Test
     public void testPop() {
         System.out.println("pop");
-        
+        instance = new Stack();
+        instance.push(1);
+        instance.push(2);
+        instance.push(3);
+        instance.push(4);
+        instance.push(5);
+        instance.push(6);
+        instance.pop();
+        String expResult = "[1, 2, 3, 4, 5]";
+        assertEquals(expResult, instance.toString());
+        instance.pop();
+        instance.pop();
+        expResult = "[1, 2, 3]";
+        assertEquals(expResult, instance.toString());
     }
 
     /**
