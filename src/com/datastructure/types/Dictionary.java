@@ -133,7 +133,10 @@ public class Dictionary {
         return values;
     }
 
-    public void growArray() {
+    /**
+     * This can grows the maximum length of the items array.
+     */
+    private void growArray() {
         if (this.size >= this.items.length) {
             Node[] newArray = new Node[(this.size * 3) / 2];
             // Copy the this.array to the newArray

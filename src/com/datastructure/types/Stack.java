@@ -14,7 +14,7 @@ public class Stack {
 
     private Object[] items;
     private int length;
-    
+
     public Stack(int initialLength) {
         this.items = new Object[initialLength];
         this.length = 0;
@@ -46,28 +46,41 @@ public class Stack {
     public Object peek() {
         return null;
     }
-    
+
     /**
      * This checks if the stack is empty.
-     * 
-     * @return - True if the stack doesn't contain any element and false otherwise
+     *
+     * @return - True if the stack doesn't contain any element and false
+     * otherwise
      */
     public boolean isEmpty() {
-       return true; 
+        return true;
     }
-    
+
     /**
      * This removes all the elements of the stack.
      */
     public void clear() {
     }
-    
+
     /**
      * This returns how many elements the stack contains.
-     * 
+     *
      * @return - The length of the stack
      */
     public int size() {
         return this.length;
+    }
+
+    /**
+     * This can grows the maximum length of the items array.
+     */
+    private void growArray() {
+        if (this.length >= this.items.length) {
+            Object[] newArray = new Object[(this.length * 3) / 2];
+            // Copy the this.array to the newArray
+            System.arraycopy(this.items, 0, newArray, 0, this.items.length);
+            this.items = newArray;
+        }
     }
 }
