@@ -13,11 +13,11 @@ package com.datastructure.types;
  */
 public class Graph {
 
-    private Object[] vertices;
+    private Stack vertices;
     private Dictionary adjList;
     
     public Graph(int initialLength) {
-        this.vertices = new Object[initialLength];
+        this.vertices = new Stack();
         this.adjList = new Dictionary();
     }
     
@@ -26,6 +26,23 @@ public class Graph {
      * @param v the object vertex
      */
     public void addVertex(Object v) {
-        
+    }
+    
+    /**
+     * Add a new edge between two vertex
+     * @param v the vertex a
+     * @param w the vertex b
+     */
+    public void addEdge(Object v, Object w) {
+    }
+    
+    /**
+     * This returns a string with all vertex and their edges
+     * 
+     * @return - All the elements of the stack
+     */
+    @Override
+    public String toString() {
+        return "";
     }
 }
