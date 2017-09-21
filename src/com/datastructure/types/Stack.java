@@ -79,6 +79,7 @@ public class Stack {
             pop();
         }
     }
+    
 
     /**
      * This returns how many elements the stack contains.
