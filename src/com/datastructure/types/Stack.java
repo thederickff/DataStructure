@@ -56,7 +56,7 @@ public class Stack {
      * @return - The top element of the stack
      */
     public Object peek() {
-        return null;
+        return this.items[this.length-1];
     }
 
     /**
@@ -66,13 +66,18 @@ public class Stack {
      * otherwise
      */
     public boolean isEmpty() {
-        return true;
+        return this.length < 1;
     }
 
     /**
      * This removes all the elements of the stack.
      */
     public void clear() {
+        // this.length on the for directly is not working!
+        int count = this.length;
+        for (int i = 0; i < count; i++) {
+            pop();
+        }
     }
 
     /**

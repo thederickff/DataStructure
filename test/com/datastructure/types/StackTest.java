@@ -74,6 +74,11 @@ public class StackTest {
         instance.pop();
         expResult = "[1, 2, 3]";
         assertEquals(expResult, instance.toString());
+        instance.pop();
+        instance.pop();
+        instance.pop();
+        expResult = "[]";
+        assertEquals(expResult, instance.toString());
     }
 
     /**
@@ -82,6 +87,15 @@ public class StackTest {
     @Test
     public void testPeek() {
         System.out.println("peek");
+        instance = new Stack();
+        instance.push('a');
+        instance.push('b');
+        instance.push('c');
+        char item = (char) instance.peek();
+        assertEquals('c', item);
+        instance.push('@');
+        item = (char) instance.peek();
+        assertEquals('@', item);
     }
 
     /**
@@ -90,6 +104,14 @@ public class StackTest {
     @Test
     public void testIsEmpty() {
         System.out.println("isEmpty");
+        instance = new Stack();
+        assertTrue(instance.isEmpty());
+        instance.push("ab");
+        instance.push("cd");
+        assertFalse(instance.isEmpty());
+        instance.pop();
+        instance.pop();
+        assertTrue(instance.isEmpty());
     }
 
     /**
@@ -98,6 +120,17 @@ public class StackTest {
     @Test
     public void testClear() {
         System.out.println("clear");
+        instance = new Stack();
+        instance.push(30);
+        instance.push(40);
+        instance.push(50);
+        instance.clear();
+        assertTrue(instance.isEmpty());
+        for (int i = 0; i < 10; i++) {
+            instance.push(i);
+        }
+        instance.clear();
+        assertTrue(instance.isEmpty());
     }
 
     /**
