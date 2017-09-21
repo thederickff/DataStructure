@@ -139,6 +139,12 @@ public class StackTest {
     @Test
     public void testSize() {
         System.out.println("size");
+        instance = new Stack();
+        int expResult = 10;
+        for (int i = 0; i < 10; i++) {
+            instance.push(i*3);
+        }
+        assertEquals(expResult, instance.size());
     }
     
 }
